@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,300&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400&display=swap');
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@mixin Roboto-Normal {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+@mixin Open-Sans {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+
+.fluid-container {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 0px opx;
+}
+
+// colors
+$primary: #2734b5;
+$secondary: #383940;
+$ternary: #001E61;
+$square: #f9fafe;
+$pentagon: #4A4A4A;
+$hexagon: #e4e4e4;
+$heptagon: #ffffff;
+$octagon: #ebebeb;
+$nanogon: #F3F6FD;
+$danger: #FF1D44;
+$dark: #252525;
+$grey: #B0B9C8;
+$light: #f2f2f2;
+$blue: #1A237E;
+$correct: #27AE60;
+$wrong: #EB5757;
+$greyash: #5A606C;
+$black: #000000;
+$darkash: #EFF5FC;
+$darkred: #E81F76;
+$lightwhite: #afafaf;
+$drakgrey: #828282;
+$lightwhitesh:#F0F2F6;
+$greywhite: #efefef;
+$mainPrimary:#5887DA;
+html,
+body {
+    height: 100%;
+    width: 100%;
+    // overflow-x:hidden;
+    // overflow-y:auto;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    // @include Open-Sans;
+    @include Roboto-Normal;
+    // overflow-x: hidden;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.mat-input-element {
+    caret-color: $mainPrimary !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+    color: $mainPrimary !important;
+    font-weight: 500;
+}
+
+.mat-error {
+    display: block;
+    margin-left: -10px;
+    margin-top: -5px;
+}
+
+// setting mat fileds 100%
+// .side-bar {
+//     background: $heptagon;
+//     height: calc(100vh - 60px);
+//     padding-top: 60px;
+// }
+
+// .page-container {
+//     position: relative;
+//     margin: 0px -15px;
+// }
+
+// #header {
+//     width: 100%;
+//     position: fixed;
+//     left: 0px;
+//     top: 0px;
+//     background-color: $greywhite;
+//     height: 60px;
+// }
+
+mat-form-field {
+    width: 100%;
+}
+
+// .cursor-pointer {
+//     cursor: pointer;
+// }
+
+// .instructions {
+//     color: $danger;
+// }
+
+table {
+    width: 100%;
+}
+
+// .grid-tile-align-end {
+//     text-align: end;
+// }
+
+// .mat-radio-button~.mat-radio-button {
+//     margin-left: 16px;
+// }
+
+// .mat-form-field-appearance-fill .mat-form-field-flex .search-table {
+//     padding: 0px !important;
+//     background-color: none !important;
+// }
+
+// mat-cell>span.link-location-span {
+//     cursor: pointer;
+//     color: $primary;
+// }
+
+// mat-cell>span.link-location-span:hover {
+//     cursor: pointer;
+//     background-color: $primary;
+// }
+
+// app-sidebar {
+//     position: absolute;
+//     width: 224px;
+//     background: $heptagon;
+//     left: 0px;
+//     top: 0px;
+//     height: calc(100vh - 60px);
+// }
+
+
+
+// mate grid header footer css
+// .mat-grid-tile .mat-grid-tile-header,
+// .mat-grid-tile .mat-grid-tile-footer {
+//     display: flex;
+//     align-items: center;
+//     height: 48px;
+//     color: $dark !important;
+//     background: none !important;
+//     overflow: hidden;
+//     padding: 0 16px;
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+// }
+
+// new material CSS changes
+// toggle Css
+
+// login page

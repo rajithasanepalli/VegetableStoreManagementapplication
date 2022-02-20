@@ -1,0 +1,111 @@
+*{
+    font-family: play;
+}
+mat-grid-list{
+    background-color:antiquewhite;
+    
+}
+.da-iconWrongText-alignment{
+    margin-top: 0px !important;
+    font-size: 12px;
+    color: #EB5757;
+    position: relative;
+    margin-left: 0px !important;
+    top: -2px;
+}
+.login-container{
+    border: 1px solid black;
+   
+
+}
+h1{
+    text-align: center;
+    padding: 5px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header{
+    text-align: center;
+    background-color:rgb(245,67,67);
+    color: white;
+    height: 50px;
+
+}
+#mouri{
+    float: left;
+    height: 49px;
+    padding: 4px;
+    
+    border:1px dotted white;
+    width: 80px;
+   
+}
+marquee{
+    color: blue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#veg{
+   margin-top: 50px;
+ 
+    
+    height: 450px;
+}
+.container{
+   
+    margin-top: 60px;
+}
+.box{
+    position: absolute;
+    top:60%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 500px;
+    height: 400px;
+    background:rgba(129, 129, 118,0.4);
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0.0,0,1);
+
+}
+.box .inputBox{
+    width: 100%;
+    padding: 10px 0 ;
+    color:black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    border: none;
+    border-bottom: 2px solid white;
+    outline: none;
+    background:transparent;
+    position: relative;
+}
+
+
+
+.box input[type="submit"]{
+    background: transparent;
+    color: white;
+    background-color: green;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-left: 170px;
+    cursor: pointer;
+    border-radius: 10px;
+ 
+    border: 1px solid red;
+    box-shadow: 10px 15px 15px rgba(0,0,0,1);
+}
+
+footer {
+    height: 40x;
+    background-color:rgb(245,67,67);
+  }
+  footer p {
+    color: white;
+    text-align: center;
+    padding: 1px;
+    font-size: 15px;
+    line-height: 40px;
+  }

@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+}
+.bg-img{
+   height:510px;
+   
+}
+    header{
+        text-align: center;
+        background-color:rgb(245,67,67);
+        color: white;
+        height: 55px;
+    
+    }
+    #mouri{
+        float: left;
+        height: 50px;
+        padding: 4px;
+        border:1px dotted white;
+        width: 80px;
+       
+    }
+    
+    nav {
+      
+        height: 40px;
+      }
+      nav ul li {
+        list-style-type: none;
+        width: 200px;
+        float: right;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        line-height: 50px;
+        font-size: 15px;
+        font-style: normal;
+      }
+      footer {
+        height: 44px;
+        background-color:rgb(245,67,67);
+      }
+      footer p {
+        color: white;
+        text-align: center;
+        padding: 1px;
+        font-size: 15px;
+        line-height: 40px;
+      }

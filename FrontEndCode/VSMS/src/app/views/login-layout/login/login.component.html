@@ -1,0 +1,85 @@
+<mat-grid-list cols="8" rowHeight="93%" class="login-container">
+    <header>
+        <img src="assets/images/mouritech logo.png" id="mouri">
+        <h1>Vegetable Store Management System</h1>
+    </header>
+    <div>
+        <h1>
+            <marquee scrollamount="20" behavior="scroll" direction="right">Welcome To Login Page Of Vegetable Store
+                Managemet
+            </marquee>
+        </h1>
+
+    </div>
+    <mat-grid-tile [colspan]="4">
+        <div class="fluid-container container">
+
+
+            <div>
+                <img src="assets/images/vegetable.png" id="veg">
+            </div>
+        </div>
+
+
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4">
+        <div class="fluid-container container">
+            <form [formGroup]=" loginForm" novalidate>
+                <div>
+                    <div class="box">
+                        <div class="form-group inputBox">
+                            <label>Email:</label>
+                            <input type="email" formControlName="email" placeholder="Enter email" class="form-control"
+                                required="">
+
+                            <div *ngIf="email.invalid && email.touched">
+                                <small class="text-danger" *ngIf="email.errors?.required">
+                                    <p>Email is required</p>
+                                </small>
+                                <small class="text-danger" *ngIf="email.errors?.pattern">
+                                    <p>Invalid Email Id</p>
+                                </small>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group inputBox">
+                            <label>Password:</label>
+                            <input type="password" placeholder="Enter Password" formControlName="password"
+                                class="form-control" required="">
+                            <div *ngIf="password.invalid && password.touched">
+                                <small class="text-danger" *ngIf="password.errors?.required">
+                                    <p>Password is required</p>
+                                </small>
+                                <small class="text-danger" *ngIf="password.errors?.minlength">
+                                    <p>Invalid password</p>
+                                </small>
+                            </div>
+
+                        </div>
+                        <input [disabled]="loginForm.invalid" (click)="doLogin()" type="submit" name="submit"
+                            value="Login" class="btn btn-primary">
+
+                    </div>
+
+                </div>
+
+
+
+
+            </form>
+
+
+
+        </div>
+
+
+    </mat-grid-tile>
+
+
+</mat-grid-list>
+<footer>
+    <p>2022 Mouritech. All Rights Reserved</p>
+</footer>

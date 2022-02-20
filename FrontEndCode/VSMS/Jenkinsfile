@@ -1,0 +1,66 @@
+pipeline {
+    environment {
+		VERSION = "latest"
+        PROJECT = "632035030116.dkr.ecr.us-west-2.amazonaws.com/reef/darma/frontend-ui"
+        IMAGE = "$PROJECT:$VERSION"
+        ECRURL = "https://632035030116.dkr.ecr.us-west-2.amazonaws.com/reef/darma/frontend-ui"
+        ECRCRED = "ecr:us-west-2:f0242ddf-b155-4fd3-87b7-fbfb07bf4a7a"
+    }
+    
+    agent any   
+    stages {
+        stage('SCM Checkout') {
+            steps {
+            // Get source code from Gitlab repository
+                checkout([$class: 'GitSCM', branches: [[name: 'Development']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: './sc']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'c8ca8602-054f-440d-9a2d-2dd2b424006d', url: 'https://bitbucket.org/parkjockey/darma-app.git']]])
+            }
+        }
+        stage('Deployment file') {
+            steps {
+            // Get source code from Gitlab repository
+                checkout([$class: 'GitSCM', branches: [[name: 'master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: './k8']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'c8ca8602-054f-440d-9a2d-2dd2b424006d', url: 'https://bitbucket.org/parkjockey/devops-k8s-repos.git']]])
+            }
+        }
+        
+        stage('Docker Image Build') {
+            steps {
+            sh '''
+                    pwd
+                    echo "PATH = ${PATH}"
+                    echo "PATH = ${IMAGE}"
+                '''
+                script {
+                    sh 'docker version '
+                    docker.build("$IMAGE")
+                }
+            }
+        }
+        
+        stage('Scanning & Pushing Docker Image into Aws Repo') {
+            steps {
+                script {
+                    docker.withRegistry(ECRURL, ECRCRED)
+                        {
+                            sh 'aws ecr put-image-scanning-configuration --repository-name reef/darma/frontend-ui --image-scanning-configuration scanOnPush=true --region us-west-2'
+                            docker.image(IMAGE).push()
+                    
+                        }
+                }
+            }
+        }    
+                
+                
+        stage('Deploy Aws Ecr image into Aws EKS') {
+            steps {
+                dir("k8/dev/darma-frontend-ui") {
+                    script {
+                        sh '''
+                                /var/lib/jenkins/bin/kubectl apply -f deployment.yml -n re-darma
+								/var/lib/jenkins/bin/kubectl -n re-darma rollout restart deployment.v1.apps/re-darma-ui
+                            '''
+                            }
+                }
+        }
+        }
+    }
+}
