@@ -1,0 +1,5 @@
+package com.mouritech.vegetablemanagementapplication.repository;
+
+public interface CustomerRepository {
+
+}

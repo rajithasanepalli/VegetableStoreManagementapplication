@@ -1,0 +1,89 @@
+package com.mouritech.vegetablemanagementapplication.model;
+
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "orders")
+public class Order {
+
+	@Id
+	@Column(name = "order_id")
+	private String orderId;
+
+//	@Column(name = "customerId")
+//	private Long customerId;
+
+	@Column(name = "amount")
+	private double amount;
+
+	@Column(name = "order_date")
+	private Date orderDate;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "CustomerId")
+	private Customer customer;
+
+	public Order() {
+		super();
+	}
+
+	public Order(String orderId, double amount, String status, Date orderDate, Long prepTime) {
+		super();
+		this.orderId = orderId;
+		this.amount = amount;
+		this.orderDate = orderDate;
+
+	}
+
+	public String getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(String orderId) {
+		this.orderId = orderId;
+	}
+
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+	
+
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", amount=" + amount + ", orderDate=" + orderDate + ", customer="
+				+ customer + "]";
+	}
+
+	
+
+	
+
+}
